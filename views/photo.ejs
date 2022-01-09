@@ -29,7 +29,6 @@
                                         <div class="col-md-6">
                                             <div class="images p-3">
                                                 <div class="text-center p-4"> <img id="main-image" src="<%= photo.image %>" width="250" /> </div>
-                                                <div class="thumbnail text-center"> <img onclick="change_image(this)" src="https://i.imgur.com/Rx7uKd0.jpg" width="70"> <img onclick="change_image(this)" src="https://i.imgur.com/Dhebu4F.jpg" width="70"> </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -39,8 +38,9 @@
                                                     
                                                 </div>
                                                 <p class="about"> <%= photo.description %> </p>
-                                                <div class="cart mt-4 align-items-center"> <button class="btn btn-primary text-uppercase mr-2 px-4">UPDATE</button> </div>
-                                                <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4">DELETE</button> </div>
+                                                <div class="cart mt-4 align-items-center"> <a href="/photos/edit/<%= photo._id %>" class="btn btn-primary text-uppercase mr-2 px-4">UPDATE</a> </div>
+                                                <div class="cart mt-4 align-items-center"> <a href="/photos/<%= photo._id %>?_method=DELETE" class="btn btn-danger text-uppercase mr-2 px-4"
+                                                    onclick="return confirm('ARE YOU SURE?')">DELETE</a> </div>
                                             </div>
                                         </div>
                                     </div>
@@ -52,18 +52,10 @@
                 </main>
 
                 <%- include('partials/_footer') -%>
-    <script>
-        function change_image(image){
 
-var container = document.getElementById("main-image");
-
-container.src = image.src;
-}
-
-document.addEventListener("DOMContentLoaded", function(event) {
-
-});
-    </script>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
