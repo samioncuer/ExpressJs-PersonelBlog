@@ -1,0 +1,61 @@
+<%- include('partials/_header') -%>
+
+<body>
+    <div class="tm-page-wrap mx-auto">
+        <div class="position-relative">
+            
+            <%- include('partials/_navbar') -%>
+            
+
+            <div id="tm-video-container">
+                <video autoplay muted loop id="tm-video">
+                    <!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
+                        <source src="video/wheat-field.mp4" type="video/mp4">
+                </video>    
+            </div>
+            
+            <i id="tm-video-control-button" class="fas fa-pause"></i>
+        </div>
+
+        <div class="container-fluid">
+            <div id="content" class="mx-auto tm-content-container">
+                <main>
+                    
+                    <div class="container mt-5 mb-5">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-10">
+                                <div class="card">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="images p-3">
+                                                <div class="text-center p-4"> <img id="main-image" src="<%= photo.image %>" width="250" /> </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="product p-4">
+                                                
+                                                <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand"> <%= photo.title %> </span>
+                                                    
+                                                </div>
+                                                <p class="about"> <%= photo.description %> </p>
+                                                <div class="cart mt-4 align-items-center"> <a href="/photos/edit/<%= photo._id %>" class="btn btn-primary text-uppercase mr-2 px-4">UPDATE</a> </div>
+                                                <div class="cart mt-4 align-items-center"> <a href="/photos/<%= photo._id %>?_method=DELETE" class="btn btn-danger text-uppercase mr-2 px-4"
+                                                    onclick="return confirm('ARE YOU SURE?')">DELETE</a> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+
+                <%- include('partials/_footer') -%>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
