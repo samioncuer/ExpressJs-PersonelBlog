@@ -55,7 +55,7 @@ app.post("/photos", async (req, res) => {
   //await Photo.create(req.body);
 
   const uploadDir = "public/uploads";
-  if (!fs.existsSync()) {
+  if (fs.existsSync()) {
     fs.mkdirSync(uploadDir);
   }
 
